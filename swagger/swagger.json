@@ -1,0 +1,564 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "DingTalk Staff UC API",
+        "description": "Very cool tools to autogenerate documents for your API",
+        "version": "1.0.0",
+        "termsOfService": "http://beego.me/",
+        "contact": {
+            "email": "yy520it@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/staff/department/": {
+            "get": {
+                "tags": [
+                    "staff/department"
+                ],
+                "description": "get App",
+                "operationId": "StaffDepartmentController.Get All Department",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...Id、Name、ParentId、CreateDeptGroup、AutoAddUser、CreatedTime、UpdatedTime",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Department"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/staff/department/about/querydepartment": {
+            "get": {
+                "tags": [
+                    "staff/department"
+                ],
+                "description": "get department by departmentid",
+                "operationId": "StaffDepartmentController.GetAboutDepartment",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...Id、Name、ParentId、CreateDeptGroup、AutoAddUser、CreatedTime、UpdatedTime",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Department"
+                        }
+                    },
+                    "403": {
+                        "description": ":name is empty"
+                    }
+                }
+            }
+        },
+        "/staff/department/querydepartment": {
+            "get": {
+                "tags": [
+                    "staff/department"
+                ],
+                "description": "get Department by Departmentid",
+                "operationId": "StaffDepartmentController.GetDepartment",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "name",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Department"
+                        }
+                    },
+                    "403": {
+                        "description": ":name is empty"
+                    }
+                }
+            }
+        },
+        "/staff/department/querydepartmentid": {
+            "get": {
+                "tags": [
+                    "staff/department"
+                ],
+                "description": "get Department by departmentid",
+                "operationId": "StaffDepartmentController.Get DepartmentID",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "departmentid",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Department"
+                        }
+                    },
+                    "403": {
+                        "description": ":departmentid is empty"
+                    }
+                }
+            }
+        },
+        "/staff/user/": {
+            "get": {
+                "tags": [
+                    "staff/user"
+                ],
+                "description": "get App",
+                "operationId": "StaffUserController.Get All User",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...ID、UserID、UnionID、UserName、Mobile、Tel、 WorkPlace、Remark、Order、IsAdmin、IsBoss、IsHide、IsLeader、Name、Active、DepartmentID、Position、Email、Avatar、Jobnumber、Extattr、CreatedTime、Updated、UpdatedTime",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Member"
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/staff/user/about/queryuser": {
+            "get": {
+                "tags": [
+                    "staff/user"
+                ],
+                "description": "get user by Username",
+                "operationId": "StaffUserController.GetAboutUser",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "username",
+                        "description": "Filter. e.g. col1:v1,col2:v2 ...",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "fields",
+                        "description": "Fields returned. e.g. col1,col2 ...ID、UserID、UnionID、UserName、Mobile、Tel、 WorkPlace、Remark、Order、IsAdmin、IsBoss、IsHide、IsLeader、Name、Active、DepartmentID、Position、Email、Avatar、Jobnumber、Extattr、CreatedTime、Updated、UpdatedTime",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "sortby",
+                        "description": "Sorted-by fields. e.g. col1,col2 ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "order",
+                        "description": "Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "description": "Limit the size of result set. Must be an integer",
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "offset",
+                        "description": "Start position of result set. Must be an integer",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Member"
+                        }
+                    },
+                    "403": {
+                        "description": ":username is empty"
+                    }
+                }
+            }
+        },
+        "/staff/user/queryid": {
+            "get": {
+                "tags": [
+                    "staff/user"
+                ],
+                "description": "get user by id",
+                "operationId": "StaffUserController.Get ID",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "id",
+                        "description": "Fields returned. e.g. col1,col2 ...",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Member"
+                        }
+                    },
+                    "403": {
+                        "description": ":id is empty"
+                    }
+                }
+            }
+        },
+        "/staff/user/queryuser": {
+            "get": {
+                "tags": [
+                    "staff/user"
+                ],
+                "description": "get user by Username",
+                "operationId": "StaffUserController.GetUser",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "username",
+                        "description": "The key for staticblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.Member"
+                        }
+                    },
+                    "403": {
+                        "description": ":username is empty"
+                    }
+                }
+            }
+        },
+        "/sync/": {
+            "post": {
+                "tags": [
+                    "sync"
+                ],
+                "description": "DingTalk sync user to DB",
+                "operationId": "SyncController.Post",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DingTalk"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Department": {
+            "title": "Department",
+            "type": "object",
+            "properties": {
+                "CreatedTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "UpdatedTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "autoadduser": {
+                    "description": "AutoAddUser",
+                    "type": "boolean"
+                },
+                "createdeptgroup": {
+                    "description": "CreateDeptGroup",
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "description": "Name",
+                    "type": "string"
+                },
+                "parentid": {
+                    "description": "ParentId",
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.DingTalk": {
+            "title": "DingTalk",
+            "type": "object"
+        },
+        "models.Member": {
+            "title": "Member",
+            "type": "object",
+            "properties": {
+                "CreatedTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "UpdatedTime": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "active": {
+                    "type": "boolean"
+                },
+                "avatar": {
+                    "type": "string"
+                },
+                "departmentid": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "extattr": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "isadmin": {
+                    "type": "boolean"
+                },
+                "isboss": {
+                    "type": "boolean"
+                },
+                "ishide": {
+                    "type": "boolean"
+                },
+                "isleader": {
+                    "type": "boolean"
+                },
+                "jobnumber": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "order": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "position": {
+                    "type": "string"
+                },
+                "remark": {
+                    "type": "string"
+                },
+                "tel": {
+                    "type": "string"
+                },
+                "unionid": {
+                    "type": "string"
+                },
+                "userid": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "workplace": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.Object": {
+            "title": "Object",
+            "type": "object",
+            "properties": {
+                "ObjectId": {
+                    "type": "string"
+                },
+                "PlayerName": {
+                    "type": "string"
+                },
+                "Score": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "models.Profile": {
+            "title": "Profile",
+            "type": "object",
+            "properties": {
+                "Address": {
+                    "type": "string"
+                },
+                "Age": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "Email": {
+                    "type": "string"
+                },
+                "Gender": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.User": {
+            "title": "User",
+            "type": "object",
+            "properties": {
+                "Id": {
+                    "type": "string"
+                },
+                "Password": {
+                    "type": "string"
+                },
+                "Profile": {
+                    "$ref": "#/definitions/models.Profile"
+                },
+                "Username": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "sync",
+            "description": "Operations about Users\n"
+        },
+        {
+            "name": "staff/user",
+            "description": "Operations about Users\n"
+        },
+        {
+            "name": "staff/department",
+            "description": "Operations about Users\n"
+        }
+    ]
+}
